@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#100d18" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><rect width=%2240%22 height=%2240%22 fill=%22%23ed2947%22/><text x=%2211%22 y=%2230%22 font-size=%2230%22 font-family=%22sans-serif%22 font-weight=%22900%22 fill=%22white%22>R</text></svg>" />
+  <title>RWBY: Sombras de Vale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="Arena de combate de RWBY"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="RWBY Sombras de Vale"><span class="brand-mark">R</span><span class="brand-name">RWBY<span> / SOMBRAS DE VALE</span></span></a>
+      <div class="mission"><span class="mission-kicker">MISIÓN 01 <i></i> BOSQUE DE EMERALD</span><span class="mission-name">Una noche sin luna</span></div>
+      <button class="sound-button" id="soundBtn" aria-label="Activar o silenciar sonido"><span id="soundIcon">♫</span><span class="sound-label">SONIDO</span></button>
+    </header>
+    <section class="hud" aria-label="Estado de la misión">
+      <div class="hero-card"><div class="portrait"><span>R</span><div class="portrait-glow"></div></div><div class="hero-info"><span class="eyebrow">LÍDER DEL EQUIPO RWBY</span><strong>RUBY ROSE</strong><div class="health-track"><span id="healthFill"></span></div><span class="health-label"><b id="healthText">100</b> <small>/ 100 · AURA</small></span></div></div>
+      <div class="wave-card"><span class="eyebrow">OLEADA</span><strong id="waveText">01 <i>/ 03</i></strong><div class="wave-dots"><span class="active"></span><span></span><span></span></div></div>
+      <div class="score-card"><span class="eyebrow">GRIMM DERROTADOS</span><strong id="killText">00</strong><span class="score-sub">VALE ESTÁ CONTIGO <b>✦</b></span></div>
+    </section>
+    <div class="objective" id="objective"><span class="objective-icon">✦</span><span><b>OBJETIVO</b> <small>Elimina a los Grimm que acechan el bosque</small></span></div>
+    <div class="combat-toast" id="toast"></div>
+    <div class="controls-hint" id="controlsHint"><span class="keycap">W A S D</span><small>MOVER</small><span class="hint-divider"></span><span class="keycap">ESPACIO</span><small>ATACAR</small><span class="keycap">SHIFT</span><small>IMPULSO</small></div>
+    <div class="abilities" aria-label="Habilidades"><div class="ability"><span class="ability-key">Q</span><span class="ability-icon scythe-icon">✧</span><span class="ability-name">SEMBLANTE</span><span class="ability-cd" id="qCd">LISTO</span></div><div class="ability"><span class="ability-key">E</span><span class="ability-icon dash-icon">➤</span><span class="ability-name">ROSA PÉTREA</span><span class="ability-cd" id="eCd">LISTO</span></div></div>
+    <div class="screen" id="startScreen"><div class="intro-card"><div class="intro-top"><span class="red-line"></span><span>BEACON ACADEMY PRESENTA</span><span class="red-line"></span></div><div class="title-mark">RWBY</div><div class="subtitle">SOMBRAS <span>DE</span> VALE</div><div class="intro-divider"><i></i><span>✦</span><i></i></div><p>El bosque está inquieto. Los Grimm se acercan.<br><b>Ruby Rose, es hora de cazar.</b></p><button class="play-button" id="playBtn"><span>INICIAR MISIÓN</span><b>↗</b></button><div class="start-note">UNA AVENTURA DE ACCIÓN <span>•</span> JUGABLE EN MÓVIL Y ESCRITORIO</div></div><div class="start-character"><span class="scythe-glint"></span><div class="start-caption"><span>01 — LA CÁZADORA</span><b>RUBY ROSE</b></div></div></div>
+    <div class="screen hidden" id="endScreen"><div class="end-card"><span class="end-kicker" id="endKicker">MISIÓN COMPLETADA</span><h1 id="endTitle">¡VALE ESTÁ A SALVO!</h1><p id="endCopy">Los Grimm han sido derrotados. Buen trabajo, cazadora.</p><div class="final-score"><span>GRIMM DERROTADOS</span><b id="finalKills">00</b></div><button class="play-button" id="againBtn"><span>JUGAR DE NUEVO</span><b>↻</b></button></div></div>
+    <div class="mobile-controls" id="mobileControls"><div class="dpad"><button data-dir="up" aria-label="Arriba">▲</button><div><button data-dir="left" aria-label="Izquierda">◀</button><button data-dir="down" aria-label="Abajo">▼</button><button data-dir="right" aria-label="Derecha">▶</button></div></div><div class="mobile-actions"><button class="action-attack" data-action="attack">✦<small>ATAQUE</small></button><button data-action="dash">➤<small>IMPULSO</small></button><button data-action="special">Q<small>SEMBLANTE</small></button></div></div>
+    <footer class="footer"><span>© REMNANT — BOSQUE DE EMERALD</span><span class="footer-center">HECHO CON <b>✦</b> PARA LOS CAZADORES</span><span>WASD / FLECHAS PARA MOVERSE</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
